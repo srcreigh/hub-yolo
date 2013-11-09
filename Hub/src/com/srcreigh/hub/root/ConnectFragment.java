@@ -28,6 +28,7 @@ public class ConnectFragment extends Fragment {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		// Reference the locations Firebase and set it up
 		locationsRef = new Firebase(MainActivity.baseUrl + "locations");
 		locationsRef.addChildEventListener(new ChildEventListener() {

@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
 	public static final String PREFS_NAME = "hubPrefs";
 	public static final String USER_ID = "userId";
 	public static final String TWITTER_AUTH_TOKEN = "twitterAuthToken";
+	public static final String TWITTER_AUTH_TOKEN_SECRET = "twitterAuthTokenSecret";
 
 	public static final String baseUrl = "https://srcreigh-hub.firebaseIO.com/";
 
@@ -28,7 +29,7 @@ public class MainActivity extends Activity {
 		String twitterAuthToken = settings.getString(TWITTER_AUTH_TOKEN, null);
 		
 		if (twitterAuthToken == null) {
-			// Open splash activity. This guy needs to auth with twitter
+			// Open splash activity. This bitch needs to auth his ass with twitter
 			showSplash();
 
 		} else {

@@ -27,7 +27,8 @@
         </activity>
 
         <activity android:name="com.srcreigh.hub.root.HomeActivity" />
-        <activity android:name="com.srcreigh.hub.auth.SplashActivity" >
+        <activity android:name="com.srcreigh.hub.auth.SplashActivity"
+            	  android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
