@@ -1,4 +1,6 @@
-package com.srcreigh.hub;
+package com.srcreigh.hub.root;
+
+import com.srcreigh.hub.auth.SplashActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,10 +10,14 @@ import android.os.Bundle;
 public class MainActivity extends Activity {
 	
 	public static final String PREFS_NAME = "hubPrefs";
+	public static final String USER_ID = "userId";
 	public static final String TWITTER_AUTH_TOKEN = "twitterAuthToken";
+
+	public static final String baseUrl = "https://srcreigh-hub.firebaseIO.com/";
 
 	private static final int HOME_REQUEST_CODE = 0;
 	private static final int SPLASH_REQUEST_CODE = 1;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

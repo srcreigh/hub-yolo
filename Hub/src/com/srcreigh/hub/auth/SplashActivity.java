@@ -1,4 +1,7 @@
-package com.srcreigh.hub;
+package com.srcreigh.hub.auth;
+
+import com.srcreigh.hub.R;
+import com.srcreigh.hub.root.MainActivity;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -31,7 +34,9 @@ public class SplashActivity extends Activity {
 		// Save the twitter token in the prefs and finish the activity with RESULT_OK
 		SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
 		SharedPreferences.Editor editor = settings.edit();
+
 		editor.putString(MainActivity.TWITTER_AUTH_TOKEN, twitterAuthToken);
+		editor.putString(MainActivity.USER_ID, "srcreigh");
 	    editor.commit();
 	    
 	    setResult(Activity.RESULT_OK);

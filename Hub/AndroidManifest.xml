@@ -9,6 +9,7 @@
         android:targetSdkVersion="18" />
     
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +18,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="com.srcreigh.hub.MainActivity"
+            android:name="com.srcreigh.hub.root.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +26,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.srcreigh.hub.HomeActivity" />
-        <activity android:name="com.srcreigh.hub.SplashActivity" />
+        <activity android:name="com.srcreigh.hub.root.HomeActivity" />
+        <activity android:name="com.srcreigh.hub.auth.SplashActivity" />
+        <activity android:name="com.srcreigh.hub.settings.SettingsActivity" />
     </application>
 
 </manifest>
