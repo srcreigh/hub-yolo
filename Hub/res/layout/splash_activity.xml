@@ -4,11 +4,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <Button
-        android:id="@+id/connectToTwitterButton"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Login with Twitter"
-        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="HUB"
+        android:textSize="40dp"
+        />
+    
+    <RelativeLayout 
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_weight="1" >
+
+	    <Button
+	        android:id="@+id/connectToTwitterButton"
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:text="Login with Twitter"
+	        android:layout_centerInParent="true"
+	        />
+        
+    </RelativeLayout>
 
 </LinearLayout>

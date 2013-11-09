@@ -22,6 +22,7 @@ public class SplashActivity extends Activity {
 				// DO AUTH STUFF HERE CHARLES
 
 				// On successful auth call onSuccessfulAuth(twitterAuthToken)
+				onSuccessfulAuth("foo");
 			}
 		});
 	}
