@@ -7,6 +7,8 @@
     <Button
         android:id="@+id/connectToTwitterButton"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        android:text="Login with Twitter"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

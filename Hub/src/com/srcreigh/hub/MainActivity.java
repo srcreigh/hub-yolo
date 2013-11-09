@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		
 		// Check if we have twitter auth token
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);

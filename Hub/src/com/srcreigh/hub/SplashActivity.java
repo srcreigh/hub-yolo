@@ -11,14 +11,17 @@ public class SplashActivity extends Activity {
 	private Button twitterButton;
 	
 	@Override
-	public void onCreate(Bundle savedBundleState) {
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash_activity);
 		
 		twitterButton = (Button) findViewById(R.id.connectToTwitterButton);
 		twitterButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				// DO AUTH STUFF HERE
+				// DO AUTH STUFF HERE CHARLES
+
+				// On successful auth call onSuccessfulAuth(twitterAuthToken)
 			}
 		});
 	}
