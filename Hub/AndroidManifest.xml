@@ -27,7 +27,14 @@
         </activity>
 
         <activity android:name="com.srcreigh.hub.root.HomeActivity" />
-        <activity android:name="com.srcreigh.hub.auth.SplashActivity" />
+        <activity android:name="com.srcreigh.hub.auth.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="srcreighhub"/>
+            </intent-filter>
+        </activity>
         <activity android:name="com.srcreigh.hub.settings.SettingsActivity" />
     </application>
 
