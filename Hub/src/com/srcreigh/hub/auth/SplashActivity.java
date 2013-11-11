@@ -24,11 +24,12 @@ import android.widget.Toast;
 public class SplashActivity extends Activity {
 	
 	private Button twitterButton;
+	public static AccessToken at;
 	
 	/** Consumer Key generated when you registered your app at https://dev.twitter.com/apps/ */
-	private static final String CONSUMER_KEY = "hhmIfpgBwQBpvEGbb7tXg";
+	public static final String CONSUMER_KEY = "hhmIfpgBwQBpvEGbb7tXg";
 	/** Consumer Secret generated when you registered your app at https://dev.twitter.com/apps/  */
-	private static final String CONSUMER_SECRET = "WG0dm53aOOq3uz5wx4PQQniCeEU4kO76k7o3VaOtZ40"; // XXX Encode in your app
+	public static final String CONSUMER_SECRET = "WG0dm53aOOq3uz5wx4PQQniCeEU4kO76k7o3VaOtZ40"; // XXX Encode in your app
 	private static final String CALLBACK_URL = "srcreighhub:///";
 	private Twitter mTwitter;
 	private RequestToken mReqToken;
@@ -62,9 +63,6 @@ public class SplashActivity extends Activity {
 				
 				Log.i("sourceray", "Login Pressed");
 				loginNewUser();
-				
-				// On successful auth call onSuccessfulAuth(twitsterAuthToken)
-				// onSuccessfulAuth("foo");
 			}
 		});
 	}
@@ -141,7 +139,7 @@ public class SplashActivity extends Activity {
 	 */
 	private void authoriseNewUser(String oauthVerifier) {
 		try {
-			AccessToken at = mTwitter.getOAuthAccessToken(mReqToken, oauthVerifier);
+			at = mTwitter.getOAuthAccessToken(mReqToken, oauthVerifier);
 			mTwitter.setOAuthAccessToken(at);
 			/* for debugging/yoloing purposes
 			try {

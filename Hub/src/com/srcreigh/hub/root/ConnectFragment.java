@@ -3,10 +3,15 @@ package com.srcreigh.hub.root;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+import twitter4j.User;
+
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.srcreigh.hub.R;
+import com.srcreigh.hub.auth.SplashActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -26,6 +31,7 @@ public class ConnectFragment extends Fragment {
 	Firebase locationsRef;
 	ArrayList<DataSnapshot> connections;
 	ConnectionsAdapter adapter;
+	Twitter twitter;
 	
 	public ConnectFragment() {
 	}
@@ -39,6 +45,11 @@ public class ConnectFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		// Reference the locations Firebase and set it up
 		connections = new ArrayList<DataSnapshot>();
+		
+		// Get twitter factory
+		twitter = new TwitterFactory().getInstance();
+		twitter.setOAuthConsumer(SplashActivity.CONSUMER_KEY, SplashActivity.CONSUMER_SECRET);
+		twitter.setOAuthAccessToken(SplashActivity.at);
 
 		locationsRef = new Firebase(MainActivity.baseUrl + "locations");
 		locationsRef.addChildEventListener(new ChildEventListener() {
@@ -123,14 +134,16 @@ public class ConnectFragment extends Fragment {
 		    TextView messageView = (TextView) rowView.findViewById(R.id.messageText);
 		    Button followButton = (Button) rowView.findViewById(R.id.followButton);
 
-			HashMap<String, Object> location = (HashMap<String, Object>)connections.get(position).getValue();
+			final HashMap<String, Object> location = (HashMap<String, Object>)connections.get(position).getValue();
 
 		    nameView.setText((String)location.get("name"));
 		    messageView.setText((String)location.get("message"));
 		    followButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					// Follow on twitter somehow
+					try {
+						twitter.createFriendship((String)location.get("twitter"));
+					} catch (Exception e) { }
 				}
 			});
 

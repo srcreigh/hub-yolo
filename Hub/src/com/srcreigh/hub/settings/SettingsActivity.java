@@ -1,5 +1,6 @@
 package com.srcreigh.hub.settings;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.firebase.client.DataSnapshot;
@@ -24,6 +25,7 @@ public class SettingsActivity extends Activity {
 	Button submitButton;
 	
 	Firebase userRef;
+	Firebase locationsRef;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class SettingsActivity extends Activity {
 		// Set up our user reference
 		// Get the authenticated user id
 		SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-		String userId = settings.getString(MainActivity.USER_ID, null);
+		final String userId = settings.getString(MainActivity.USER_ID, null);
 
 		userRef = new Firebase(MainActivity.baseUrl + "users/" + userId); 
 		userRef.addValueEventListener(new ValueEventListener() {
@@ -54,6 +56,8 @@ public class SettingsActivity extends Activity {
 
 			@Override public void onCancelled() { }
 		});
+		
+		locationsRef = new Firebase(MainActivity.baseUrl + "location/" + userId);
 
 		final Activity self = this;
 		submitButton.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +77,18 @@ public class SettingsActivity extends Activity {
 					
 					userRef.child("name").setValue(name);
 					userRef.child("message").setValue(message);
+					
+					// Add a location thing
+					Firebase newPush = locationsRef.push();
+					Map<String, Object> location = new HashMap<String, Object>();
+					location.put("name", name);
+					location.put("message", message);
+					location.put("time", "");
+					location.put("lat", "");
+					location.put("lon", "");
+					location.put("twitter", userId);
+					
+					newPush.setValue(location);
 					
 					// close the activity
 					finish();
