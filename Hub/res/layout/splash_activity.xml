@@ -12,31 +12,15 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </RelativeLayout>
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/relativeLayout1"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="200dp"
         android:gravity="center"
         android:text="HUB"
         android:textColor="#ffffff"
-        android:textSize="40dp" />
-
-    <Button
-        android:id="@+id/connectToTwitterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="102dp"
-        android:text="Login with Twitter" />
+        android:textSize="70dp" />
 
 </RelativeLayout>
