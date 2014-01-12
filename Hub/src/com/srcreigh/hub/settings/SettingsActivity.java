@@ -1,21 +1,12 @@
 package com.srcreigh.hub.settings;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.ValueEventListener;
+import com.firebase.client.core.view.View;
+import com.shaded.fasterxml.jackson.databind.node.NodeCursor.Object;
 import com.srcreigh.hub.R;
 import com.srcreigh.hub.root.MainActivity;
-
-import android.app.Activity;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
 	
@@ -59,6 +50,9 @@ public class SettingsActivity extends Activity {
 		
 		locationsRef = new Firebase(MainActivity.baseUrl + "location/" + userId);
 
+		
+		
+		
 		final Activity self = this;
 		submitButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -96,4 +90,13 @@ public class SettingsActivity extends Activity {
 			}
 		});
 	}
+	
+	// Function for dealing with authentication activities that return data
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK) {
+			String string = data.getStringExtra("OAUTH");
+			TwitterWrapper.getInstance().receiveOAuth(string);
+		}
+	}
+	
 }
